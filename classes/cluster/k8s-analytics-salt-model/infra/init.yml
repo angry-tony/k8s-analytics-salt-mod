@@ -1,0 +1,36 @@
+
+classes:
+- system.linux.system.single
+- system.openssh.server.team.lab
+- system.openssh.server.team.tcpcloud
+- system.openssh.server.team.mcp_qa
+- cluster.k8s-analytics-salt-model.kubernetes
+parameters:
+  _param:
+
+    # infra service addresses
+    infra_config_hostname: cfg01
+    infra_config_address: 10.0.175.90
+    infra_config_deploy_address: 10.0.175.90
+
+    cluster_domain: mcp-analytics.local
+    cluster_name: k8s-analytics-salt-model
+    cluster_public_host: 
+
+
+  linux:
+    network:
+      host:
+        cfg01:
+          address: ${_param:infra_config_address}
+          names:
+          - ${_param:infra_config_hostname}
+          - ${_param:infra_config_hostname}.${_param:cluster_domain}
+        cfg:
+          address: ${_param:infra_config_address}
+          names:
+          - cfg
+          - cfg.${_param:cluster_domain}
+    system:
+      name: ${_param:infra_config_hostname}
+      domain: ${_param:cluster_domain}

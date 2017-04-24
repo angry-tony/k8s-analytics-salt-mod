@@ -1,0 +1,11 @@
+classes:
+- cluster.${_param:cluster_name}.kubernetes.control
+- cluster.k8s-analytics-salt-model.infra.config
+parameters:
+    _param:
+        linux_system_codename: xenial
+        reclass_data_revision: master
+    linux:
+        system:
+            name: ctl01
+            domain: mcp-analytics.local
