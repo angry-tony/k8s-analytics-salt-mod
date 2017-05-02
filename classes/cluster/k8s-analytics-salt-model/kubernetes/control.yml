@@ -9,7 +9,8 @@ classes:
 parameters:
   _param:
     keepalived_vip_interface: eth0
-    keepalived_vip_virtual_router_id: 60
+    keepalived_vip_virtual_router_id: 5
+    salt_minion_ca_host: ctl01.mcp-analytics.local
   etcd:
     server:
       source:
